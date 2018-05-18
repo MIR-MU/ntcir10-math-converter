@@ -9,7 +9,7 @@ MathIR][paper:zanibbi16-ntcir12] task [dataset][www:ntcir-12-mathir-data], and
 This makes it difficult to use both datasets together in a single evaluation.
 
 NTCIR Math converter is a Python 3 command-line utility that converts the
-NTCIR-10 Math dataset and relevance judgements to the NTCIR-11 Matn-2, and
+NTCIR-10 Math dataset and relevance judgements to the NTCIR-11 Math-2, and
 NTCIR-12 MathIR format by splitting the dataset into paragraphs and redirecting
 the relevance judgements from elements to their ancestral paragraphs. As a
 result, the NTCIR-10 Math dataset, and relevance judgements can be easily used
