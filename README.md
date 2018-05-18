@@ -72,6 +72,8 @@ Converting both a dataset and relevance judgements using 64 worker processes:
     Retrieving judged document names, and element identifiers from NTCIR_10_Math-qrels_fs.dat
     100%|███████████████████████████████████████████████████████| 2129/2129 [00:00<00:00, 9671.33it/s]
     Processing dataset ntcir-10
+    Converting dataset ntcir-10 -> ntcir-10-converted/xhtml5
+    Building a mapping between element identifiers, and paragraph identifiers
     100%|████████████████████████████████████████████████████| 100000/100000 [06:45<00:00, 246.50it/s]
     Converting relevance judgements NTCIR_10_Math-qrels_ft.dat -> NTCIR_10_Math-qrels_ft-converted.dat
     100%|█████████████████████████████████████████████████████| 1425/1425 [00:00<00:00, 252199.81it/s]
@@ -82,6 +84,7 @@ Converting only a dataset using 64 worker processes:
 
     $ ntcir10-math-converter --num-workers 64 \
     $     --dataset ntcir-10 ntcir-10-converted
+    Processing dataset ntcir-10
     Converting dataset ntcir-10 -> ntcir-10-converted/xhtml5
     100%|████████████████████████████████████████████████████| 100000/100000 [07:34<00:00, 220.10it/s]
 
