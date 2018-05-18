@@ -13,7 +13,7 @@ NTCIR-10 Math dataset and relevance judgements to the NTCIR-11 Math-2, and
 NTCIR-12 MathIR format by splitting the dataset into paragraphs and redirecting
 the relevance judgements from elements to their ancestral paragraphs. As a
 result, the NTCIR-10 Math dataset, and relevance judgements can be easily used
-together with the NTCIR-11 Math-2, nad NTCIR-12 MathIR dataset, and relevance
+together with the NTCIR-11 Math-2, and NTCIR-12 MathIR dataset, and relevance
 judgements in a single evaluation.
 
 [paper:aizawaetal13-ntcir10]: https://ntcir-math.nii.ac.jp/wp-content/blogs.dir/23/files/2013/10/01-NTCIR10-OV-MATH-AizawaA.pdf (NTCIR-10 Math Pilot Task Overview, Proceedings of the 10th NTCIR Conference, June 18–21, 2013, Tokyo, Japan)
