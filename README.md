@@ -67,22 +67,23 @@ Converting both a dataset and relevance judgements using 64 worker processes:
     >     --judgements \
     >         data/NTCIR_10_Math-qrels_ft.dat data/NTCIR_10_Math-qrels_ft-converted.dat \
     >         data/NTCIR_10_Math-qrels_fs.dat data/NTCIR_10_Math-qrels_fs-converted.dat
-    2018-05-18 18:44:58,555 : INFO : Retrieving judged document names, and element identifiers from data/NTCIR_10_Math-qrels_ft.dat
-    100%|██████████████████████████████████████████████████████████████████████████████| 1425/1425 [00:00<00:00, 9634.03it/s]
-    2018-05-18 18:44:58,707 : INFO : Retrieving judged document names, and element identifiers from data/NTCIR_10_Math-qrels_fs.dat
-    100%|██████████████████████████████████████████████████████████████████████████████| 2129/2129 [00:00<00:00, 9671.33it/s]
-    2018-05-18 18:44:58,928 : INFO : Processing dataset data/ntcir-10
-    100%|███████████████████████████████████████████████████████████████████████████| 100000/100000 [06:45<00:00, 246.50it/s]
-    2018-05-18 18:51:46,219 : INFO : Converting relevance judgements data/NTCIR_10_Math-qrels_ft.dat -> data/NTCIR_10_Math-qrels_ft-converted.dat
-    100%|████████████████████████████████████████████████████████████████████████████| 1425/1425 [00:00<00:00, 252199.81it/s]
-    2018-05-18 18:51:46,228 : INFO : Converting relevance judgements data/NTCIR_10_Math-qrels_fs.dat -> data/NTCIR_10_Math-qrels_fs-converted.dat
-    100%|████████████████████████████████████████████████████████████████████████████| 2129/2129 [00:00<00:00, 291048.96it/s]
+    Retrieving judged document names, and element identifiers from data/NTCIR_10_Math-qrels_ft.dat
+    100%|█████████████████████████████████████████████████████████████████| 1425/1425 [00:00<00:00, 9634.03it/s]
+    Retrieving judged document names, and element identifiers from data/NTCIR_10_Math-qrels_fs.dat
+    100%|█████████████████████████████████████████████████████████████████| 2129/2129 [00:00<00:00, 9671.33it/s]
+    Processing dataset data/ntcir-10
+    100%|██████████████████████████████████████████████████████████████| 100000/100000 [06:45<00:00, 246.50it/s]
+    Converting relevance judgements data/NTCIR_10_Math-qrels_ft.dat -> data/NTCIR_10_Math-qrels_ft-converted.dat
+    100%|███████████████████████████████████████████████████████████████| 1425/1425 [00:00<00:00, 252199.81it/s]
+    Converting relevance judgements data/NTCIR_10_Math-qrels_fs.dat -> data/NTCIR_10_Math-qrels_fs-converted.dat
+    100%|███████████████████████████████████████████████████████████████| 2129/2129 [00:00<00:00, 291048.96it/s]
 
 Converting only a dataset using 64 worker processes:
 
-    $ ntcir10-math-converter --num-workers 64 --dataset data/ntcir-10 data/ntcir-10-converted
-    2018-05-18 19:09:08,162 : INFO : Converting dataset data/ntcir-10 -> data/ntcir-10-converted/xhtml5
-    100%|███████████████████████████████████████████████████████████████████████████| 100000/100000 [07:34<00:00, 220.10it/s]
+    $ ntcir10-math-converter --num-workers 64 \
+    $     --dataset data/ntcir-10 data/ntcir-10-converted
+    Converting dataset data/ntcir-10 -> data/ntcir-10-converted/xhtml5
+    100%|██████████████████████████████████████████████████████████████| 100000/100000 [07:34<00:00, 220.10it/s]
 
 Converting only relevance judgements using 64 worker processes:
 
@@ -91,14 +92,14 @@ Converting only relevance judgements using 64 worker processes:
     >     --judgements \
     >         data/NTCIR_10_Math-qrels_ft.dat data/NTCIR_10_Math-qrels_ft-converted.dat \
     >         data/NTCIR_10_Math-qrels_fs.dat data/NTCIR_10_Math-qrels_fs-converted.dat
-    2018-05-18 19:18:02,024 : INFO : Retrieving judged document names, and element identifiers from data/NTCIR_10_Math-qrels_ft.dat
-    100%|██████████████████████████████████████████████████████████████████████████████| 1425/1425 [00:00<00:00, 9539.55it/s]
-    2018-05-18 19:18:02,178 : INFO : Retrieving judged document names, and element identifiers from data/NTCIR_10_Math-qrels_fs.dat
-    100%|██████████████████████████████████████████████████████████████████████████████| 2129/2129 [00:00<00:00, 9332.81it/s]
-    2018-05-18 19:18:02,408 : INFO : Processing dataset data/ntcir-10
-    2018-05-18 19:18:02,408 : INFO : Building a mapping between element identifiers, and paragraph identifiers
-    100%|███████████████████████████████████████████████████████████████████████████████| 2405/2405 [00:16<00:00, 144.41it/s]
-    2018-05-18 19:18:26,246 : INFO : Converting relevance judgements data/NTCIR_10_Math-qrels_ft.dat -> data/NTCIR_10_Math-qrels_ft-converted.dat
-    100%|████████████████████████████████████████████████████████████████████████████| 1425/1425 [00:00<00:00, 260760.14it/s]
-    2018-05-18 19:18:26,256 : INFO : Converting relevance judgements data/NTCIR_10_Math-qrels_fs.dat -> data/NTCIR_10_Math-qrels_fs-converted.dat
-    100%|████████████████████████████████████████████████████████████████████████████| 2129/2129 [00:00<00:00, 299442.45it/s]
+    Retrieving judged document names, and element identifiers from data/NTCIR_10_Math-qrels_ft.dat
+    100%|█████████████████████████████████████████████████████████████████| 1425/1425 [00:00<00:00, 9539.55it/s]
+    Retrieving judged document names, and element identifiers from data/NTCIR_10_Math-qrels_fs.dat
+    100%|█████████████████████████████████████████████████████████████████| 2129/2129 [00:00<00:00, 9332.81it/s]
+    Processing dataset data/ntcir-10
+    Building a mapping between element identifiers, and paragraph identifiers
+    100%|██████████████████████████████████████████████████████████████████| 2405/2405 [00:16<00:00, 144.41it/s]
+    Converting relevance judgements data/NTCIR_10_Math-qrels_ft.dat -> data/NTCIR_10_Math-qrels_ft-converted.dat
+    100%|███████████████████████████████████████████████████████████████| 1425/1425 [00:00<00:00, 260760.14it/s]
+    Converting relevance judgements data/NTCIR_10_Math-qrels_fs.dat -> data/NTCIR_10_Math-qrels_fs-converted.dat
+    100%|███████████████████████████████████████████████████████████████| 2129/2129 [00:00<00:00, 299442.45it/s]
