@@ -25,6 +25,10 @@ judgements in a single evaluation.
 [www:ntcir-12-mathir-data]: https://ntcir-math.nii.ac.jp/data/ (NTCIR-12 MathIR » Data » NTCIR-12 MathIR Pilot Task)
 
 # Usage
+Installing:
+
+    $ pip install ntcir10-math-converter
+
 Displaying the usage:
 
     $ ntcir10-math-converter --help
