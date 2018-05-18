@@ -10,6 +10,7 @@ from sys import stdout
 
 from .converter import convert_judgements, get_judged_identifiers, process_dataset
 
+
 LOG_FILE = Path("__main__.log")
 LOG_FORMAT = "%(asctime)s : %(levelname)s : %(message)s"
 ROOT_LOGGER = getLogger()
