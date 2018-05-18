@@ -83,7 +83,7 @@ Converting both a dataset, and relevance judgements using 64 worker processes:
 Converting only a dataset using 64 worker processes:
 
     $ ntcir10-math-converter --num-workers 64 \
-    $     --dataset ntcir-10 ntcir-10-converted
+    >     --dataset ntcir-10 ntcir-10-converted
     Processing dataset ntcir-10
     Converting dataset ntcir-10 -> ntcir-10-converted/xhtml5
     100%|████████████████████████████████████████████████████| 100000/100000 [07:34<00:00, 220.10it/s]
