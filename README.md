@@ -60,7 +60,7 @@ Displaying the usage:
                             The number of processes that will be used for
                             processing the NTCIR-10 Math dataset. Defaults to 1.
 
-Converting both a dataset and relevance judgements using 64 worker processes:
+Converting both a dataset, and relevance judgements using 64 worker processes:
 
     $ ntcir10-math-converter --num-workers 64 \
     >     --dataset ntcir-10 ntcir-10-converted \
