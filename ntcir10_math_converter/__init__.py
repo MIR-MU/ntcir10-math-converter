@@ -8,5 +8,5 @@ from .__main__ import main
 
 
 __author__ = "Vit Novotny"
-__version__ = "0.1.3"
+__version__ = "0.1.4"
 __license__ = "MIT"

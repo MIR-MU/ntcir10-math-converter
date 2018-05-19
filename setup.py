@@ -48,5 +48,5 @@ setup(
         "Source": SOURCE_URL,
     },
     url=SOURCE_URL,
-    version="0.1.3",
+    version="0.1.4",
 )

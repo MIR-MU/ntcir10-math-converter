@@ -102,23 +102,23 @@ def process_dataset(input_root_dir, output_root_dir=None, judged_identifiers=Non
         LOGGER.info("Converting dataset %s -> %s", input_root_dir, output_root_dir)
     if judged_identifiers is not None:
         LOGGER.info("Building a mapping between element identifiers, and paragraph identifiers")
-    with Pool(num_workers) as pool:
-        input_files = [
-            input_file for input_file in input_root_dir.glob("**/*.xhtml")
+    arguments = []
+    for input_file in (input_file for input_file in input_root_dir.glob("**/*.xhtml")
             if output_root_dir or judged_identifiers is None
-            or input_file.name in judged_identifiers]
-        for document_identifier_map in tqdm(pool.imap_unordered(
-                _process_document_worker,
-                (
-                    (
-                        input_file, output_root_dir,
-                        input_file.relative_to(input_root_dir).with_suffix(""),
-                        judged_identifiers[input_file.name]
-                        if judged_identifiers is not None
-                        and input_file.name in judged_identifiers else None
-                    )
-                    for input_file in input_files
-                )), total=len(input_files)):
+            or input_file.name in judged_identifiers):
+        output_dir = input_file.relative_to(input_root_dir).with_suffix("")
+        if output_root_dir:
+            LOGGER.debug("Creating directory %s", output_root_dir / output_dir)
+            (output_root_dir / output_dir).mkdir(parents=True)
+        if judged_identifiers is not None and input_file.name in judged_identifiers:
+            judged_element_identifiers = judged_identifiers[input_file.name]
+        else:
+            judged_element_identifiers = None
+        arguments.append((input_file, output_root_dir, output_dir, judged_element_identifiers))
+    with Pool(num_workers) as pool:
+        for document_identifier_map in tqdm(
+                pool.imap_unordered(_process_document_worker, arguments),
+                total=len(arguments)):
             dataset_identifier_map.update(document_identifier_map)
     return dataset_identifier_map
 
@@ -127,9 +127,6 @@ def _process_document_worker(args):
     input_file, output_root_dir, output_dir, judged_element_identifiers = args
     document_identifier_map = {}
     LOGGER.debug("Processing document %s", input_file)
-    if output_root_dir:
-        LOGGER.debug("Creating directory %s", output_root_dir / output_dir)
-        (output_root_dir / output_dir).mkdir(parents=True)
     with input_file.open("rt") as f:
         input_tree = etree.parse(f)
     input_all_paragraphs = input_tree.xpath(PARAGRAPH_XPATH, namespaces=NAMESPACES)
