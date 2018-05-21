@@ -150,7 +150,7 @@ def _process_document_worker(args):
             "Processing paragraph %s in document %s", input_paragraph.attrib["id"], input_file)
         output_file = Path(
             "%s_1_%d" % (
-                str(input_file.with_suffix("").name), input_paragraph_num
+                str(input_file.with_suffix("").name), input_paragraph_num + 1
             )).with_suffix(".xhtml.zip")
         for input_element in input_paragraph.findall(".//*[@id]"):
             if judged_element_identifiers is not None and \
