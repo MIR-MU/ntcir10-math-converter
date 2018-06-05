@@ -67,6 +67,7 @@ def main():
         assert not output_dir.exists()
     if args.judgements:
         assert len(args.judgements) % 2 == 0
+    assert args.num_workers > 0
 
     if args.judgements:
         judged_identifiers = {}
