@@ -7,5 +7,5 @@ from .converter import convert_judgements, get_judged_identifiers, process_datas
 
 
 __author__ = "Vit Novotny"
-__version__ = "0.1.5"
+__version__ = "0.1.6"
 __license__ = "MIT"
