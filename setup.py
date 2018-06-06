@@ -28,7 +28,7 @@ setup(
     """,
     entry_points={
         'console_scripts': [
-            'ntcir10-math-converter=ntcir10_math_converter:main',
+            'ntcir10-math-converter=ntcir10_math_converter.__main__:main',
         ],
     },
     keywords="ntcir math_information_retrieval",
