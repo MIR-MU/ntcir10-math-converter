@@ -9,12 +9,12 @@ MathIR][paper:zanibbi16-ntcir12] task [dataset][www:ntcir-12-mathir-data], and
 This makes it difficult to use both datasets together in a single evaluation.
 
 NTCIR Math converter is a Python 3 command-line utility that converts the
-NTCIR-10 Math dataset and relevance judgements to the NTCIR-11 Math-2, and
-NTCIR-12 MathIR format by splitting the dataset into paragraphs and redirecting
-the relevance judgements from elements to their ancestral paragraphs. As a
-result, the NTCIR-10 Math dataset, and relevance judgements can be easily used
-together with the NTCIR-11 Math-2, and NTCIR-12 MathIR dataset, and relevance
-judgements in a single evaluation.
+NTCIR-10 Math XHTML5 dataset and relevance judgements to the NTCIR-11 Math-2,
+and NTCIR-12 MathIR XHTML5 format by splitting the dataset into paragraphs and
+redirecting the relevance judgements from elements to their ancestral
+paragraphs. As a result, the NTCIR-10 Math dataset, and relevance judgements
+can be easily used together with the NTCIR-11 Math-2, and NTCIR-12 MathIR
+dataset, and relevance judgements in a single workflow.
 
 [paper:aizawaetal13-ntcir10]: https://ntcir-math.nii.ac.jp/wp-content/blogs.dir/23/files/2013/10/01-NTCIR10-OV-MATH-AizawaA.pdf (NTCIR-10 Math Pilot Task Overview, Proceedings of the 10th NTCIR Conference, June 18–21, 2013, Tokyo, Japan)
 [paper:aizawaetal14-ntcir11]: https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.686.444&rep=rep1&type=pdf (NTCIR-11 Math-2 Task Overview, Proceedings of the 11th NTCIR Conference, December 9–12, 2014, Tokyo, Japan)
@@ -36,20 +36,20 @@ Displaying the usage:
                                   [--judgements JUDGEMENTS [JUDGEMENTS ...]]
                                   [--num-workers NUM_WORKERS]
 
-    Convert NTCIR-10 Math dataset and relevance judgements to the NTCIR-11 Math-2,
-    and NTCIR-12 MathIR format.
+    Convert NTCIR-10 Math XHTML5 dataset and relevance judgements to the NTCIR-11
+    Math-2, and NTCIR-12 MathIR XHTML5 format.
 
     optional arguments:
       -h, --help            show this help message and exit
       --dataset DATASET [DATASET ...]
                             A path to a directory containing the NTCIR-10 Math
-                            dataset, and a path to a non-existent directory that
-                            will contain resulting dataset in the NTCIR-11 Math-2,
-                            and NTCIR-12 MathIR format. If only the path to the
-                            NTCIR-10 Math dataset is specified, the dataset will
-                            be read to find out the mapping between element
-                            identifiers, and paragraph identifiers. This is
-                            required for converting the relevance judgements.
+                            XHTML5 dataset, and a path to a non-existent directory
+                            that will contain resulting dataset in the NTCIR-11
+                            Math-2, and NTCIR-12 MathIR XHTML5 format. If only the
+                            path to the NTCIR-10 Math dataset is specified, the
+                            dataset will be read to find out the mapping between
+                            element identifiers, and paragraph identifiers. This
+                            is required for converting the relevance judgements.
       --judgements JUDGEMENTS [JUDGEMENTS ...]
                             Paths to the files containing NTCIR-10 Math relevance
                             judgements (odd arguments), followed by paths to the

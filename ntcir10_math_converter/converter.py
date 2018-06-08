@@ -73,17 +73,18 @@ def convert_judgements(input_file, output_file, identifier_map):
 
 def process_dataset(input_root_dir, output_root_dir=None, judged_identifiers=None, num_workers=1):
     """
-    Processes the NTCIR-10 Math dataset, building a mapping between element identifiers, and
+    Processes the NTCIR-10 Math XHTML5 dataset, building a mapping between element identifiers, and
     paragraph identifiers, and optionally also building an equivalent dataset in the NTCIR-11
-    Math-2, and NTCIR-12 MathIR format.
+    Math-2, and NTCIR-12 MathIR XHTML5 format.
 
     Parameters
     ----------
     input_root_dir : pathlib.Path
-        The input directory containing the NTCIR-10 Math dataset.
+        The input directory containing the NTCIR-10 Math XHTML5 dataset.
     output_root_dir : pathlib.Path or None, optional
         The output directory that will contain the dataset from the input directory converted to the
-        NTCIR-11 Math-2, and the NTCIR-12 MathIR format. If None, no conversion will be performed.
+        NTCIR-11 Math-2, and the NTCIR-12 MathIR XHTML5 format. If None, no conversion will be
+        performed.
     judged_identifiers : dict of (str, set of str) or None, optional
         The names of judged documents and the identifiers of their judged elements. This constrains
         the documents that are actually processed when we are not building a dataset, and the

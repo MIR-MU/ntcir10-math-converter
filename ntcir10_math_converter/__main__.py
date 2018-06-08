@@ -35,16 +35,16 @@ def main():
     LOGGER.debug("Parsing command-line arguments")
     parser = ArgumentParser(
         description="""
-            Convert NTCIR-10 Math dataset and relevance judgements to the NTCIR-11 Math-2, and
-            NTCIR-12 MathIR format.
+            Convert NTCIR-10 Math XHTML5 dataset and relevance judgements to the NTCIR-11 Math-2,
+            and NTCIR-12 MathIR XHTML5 format.
         """)
     parser.add_argument(
         "--dataset", nargs='+', required=True, type=Path, help="""
-            A path to a directory containing the NTCIR-10 Math dataset, and a path to a non-existent
-            directory that will contain resulting dataset in the NTCIR-11 Math-2, and NTCIR-12
-            MathIR format. If only the path to the NTCIR-10 Math dataset is specified, the dataset
-            will be read to find out the mapping between element identifiers, and paragraph
-            identifiers. This is required for converting the relevance judgements.
+            A path to a directory containing the NTCIR-10 Math XHTML5 dataset, and a path to a
+            non-existent directory that will contain resulting dataset in the NTCIR-11 Math-2, and
+            NTCIR-12 MathIR XHTML5 format. If only the path to the NTCIR-10 Math dataset is
+            specified, the dataset will be read to find out the mapping between element identifiers,
+            and paragraph identifiers. This is required for converting the relevance judgements.
         """)
     parser.add_argument(
         "--judgements", nargs='+', type=Path, help="""

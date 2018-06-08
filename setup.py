@@ -23,8 +23,8 @@ setup(
         "Topic :: Text Processing :: Markup :: XML",
     ],
     description="""
-        The NTCIR-10 Math Converter package converts NTCIR-10 Math dataset and
-        relevance judgements to the NTCIR-11 Math-2, and NTCIR-12 MathIR format.
+        The NTCIR-10 Math Converter package converts NTCIR-10 Math XHTML dataset and relevance
+        judgements to the NTCIR-11 Math-2, and NTCIR-12 MathIR XHTML5 format.
     """,
     entry_points={
         'console_scripts': [
