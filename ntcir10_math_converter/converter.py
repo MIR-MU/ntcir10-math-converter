@@ -22,8 +22,8 @@ PARAGRAPH_XPATH = "|".join([
     ".//*[contains(concat(' ', normalize-space(@class), ' '), ' title ') and .//m:*]",
 ])
 NAMESPACES = {
-    "xhtml": "http://www.w3.org/1999/xhtml",
     "m": "http://www.w3.org/1998/Math/MathML",
+    "xhtml": "http://www.w3.org/1999/xhtml",
 }
 
 
