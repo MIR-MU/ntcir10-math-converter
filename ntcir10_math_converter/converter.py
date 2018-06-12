@@ -104,7 +104,8 @@ def process_dataset(input_root_dir, output_root_dir=None, judged_identifiers=Non
     if judged_identifiers is not None:
         LOGGER.info("Building a mapping between element identifiers, and paragraph identifiers")
     arguments = []
-    for input_file in (input_file for input_file in input_root_dir.glob("**/*.xhtml")
+    for input_file in (
+            input_file for input_file in input_root_dir.glob("**/*.xhtml")
             if output_root_dir or judged_identifiers is None
             or input_file.name in judged_identifiers):
         output_dir = input_file.relative_to(input_root_dir).with_suffix("")
