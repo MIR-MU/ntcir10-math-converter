@@ -13,14 +13,7 @@ from tqdm import tqdm
 
 
 LOGGER = getLogger(__name__)
-PARAGRAPH_XPATH = "|".join([
-    ".//xhtml:div[contains(concat(' ', normalize-space(@class), ' '), ' para ')]",
-    ".//xhtml:div[contains(concat(' ', normalize-space(@class), ' '), ' caption ') and .//m:*]",
-    ".//xhtml:div[contains(concat(' ', normalize-space(@class), ' '), ' bibblock ') and .//m:*]",
-    ".//xhtml:table[.//m:*]",
-    ".//xhtml:p[contains(concat(' ', normalize-space(@class), ' '), ' p ') and .//m:*]",
-    ".//*[contains(concat(' ', normalize-space(@class), ' '), ' title ') and .//m:*]",
-])
+PARAGRAPH_XPATH = ".//xhtml:div[contains(concat(' ', normalize-space(@class), ' '), ' para ')]"
 NAMESPACES = {
     "m": "http://www.w3.org/1998/Math/MathML",
     "xhtml": "http://www.w3.org/1999/xhtml",
@@ -64,11 +57,19 @@ def convert_judgements(input_file, output_file, identifier_map):
     identifier_map : dict of (str, str)
         A mapping between element identifiers, and paragraph identifiers.
     """
-    for line in tqdm(list(input_file)):
+    input_lines = list(input_file)
+    output_lines = []
+    for line in tqdm(input_lines):
         topic, unused, identifier, score = line.split(' ')
-        output_file.write(
-            "%s %s %s %d\n" % (
+        if identifier not in identifier_map:
+            LOGGER.warning("Skipping identifier %s, as it appears outside a paragraph", identifier)
+        else:
+            output_lines.append("%s %s %s %d" % (
                 topic, unused, identifier_map[identifier], int(score)))
+    LOGGER.info("%d / %d input / output relevance judgements", len(input_lines), len(output_lines))
+    output_file.write('\n'.join(output_lines))
+
+
 
 
 def process_dataset(input_root_dir, output_root_dir=None, judged_identifiers=None, num_workers=1):
@@ -131,18 +132,7 @@ def _process_document_worker(args):
     LOGGER.debug("Processing document %s", input_file)
     with input_file.open("rt") as f:
         input_tree = etree.parse(f)
-    input_all_paragraphs = input_tree.xpath(PARAGRAPH_XPATH, namespaces=NAMESPACES)
-    input_paragraphs = set(input_all_paragraphs)
-    for input_paragraph in input_all_paragraphs:
-        for input_paragraph_descendant in input_paragraph.xpath(
-                PARAGRAPH_XPATH, namespaces=NAMESPACES):
-            if input_paragraph_descendant in input_paragraphs:
-                LOGGER.debug(
-                    "Skipping paragraph %s in document %s, because there exists an ancestor",
-                    input_paragraph_descendant.attrib["id"]
-                    if "id" in input_paragraph_descendant.attrib else "(unknown id)",
-                    input_file)
-                input_paragraphs.remove(input_paragraph_descendant)
+    input_paragraphs = input_tree.xpath(PARAGRAPH_XPATH, namespaces=NAMESPACES)
     for input_paragraph_num, input_paragraph in enumerate(input_paragraphs):
         if "id" not in input_paragraph.attrib:
             LOGGER.warning(
