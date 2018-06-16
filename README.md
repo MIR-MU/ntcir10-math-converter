@@ -76,9 +76,23 @@ Converting both a dataset, and relevance judgements using 64 worker processes:
     Building a mapping between element identifiers, and paragraph identifiers
     100%|████████████████████████████████████████████████████| 100000/100000 [06:45<00:00, 246.50it/s]
     Converting relevance judgements NTCIR_10_Math-qrels_ft.dat -> NTCIR_10_Math-qrels_ft-converted.dat
+    Skipping identifier f080935#idp57072, as it appears outside a paragraph
+    Skipping identifier f039264#id60072, as it appears outside a paragraph
+    Skipping identifier f059698#id58538, as it appears outside a paragraph
+    ...
+    Skipping identifier f023353#idp65840, as it appears outside a paragraph
+    Skipping identifier f048268#id53551, as it appears outside a paragraph
     100%|█████████████████████████████████████████████████████| 1425/1425 [00:00<00:00, 252199.81it/s]
+    1425 / 1394 input / output relevance judgements
     Converting relevance judgements NTCIR_10_Math-qrels_fs.dat -> NTCIR_10_Math-qrels_fs-converted.dat
+    Skipping identifier f095981#id72919, as it appears outside a paragraph
+    Skipping identifier f061190#id56357, as it appears outside a paragraph
+    Skipping identifier f033738#id116089, as it appears outside a paragraph
+    ...
+    Skipping identifier f019052#id54515, as it appears outside a paragraph
+    Skipping identifier f021845#id53581, as it appears outside a paragraph
     100%|█████████████████████████████████████████████████████| 2129/2129 [00:00<00:00, 291048.96it/s]
+    2129 / 2076 input / output relevance judgements
 
 Converting only a dataset using 64 worker processes:
 
@@ -103,6 +117,20 @@ Converting only relevance judgements using 64 worker processes:
     Building a mapping between element identifiers, and paragraph identifiers
     100%|████████████████████████████████████████████████████████| 2405/2405 [00:16<00:00, 144.41it/s]
     Converting relevance judgements NTCIR_10_Math-qrels_ft.dat -> NTCIR_10_Math-qrels_ft-converted.dat
-    100%|█████████████████████████████████████████████████████| 1425/1425 [00:00<00:00, 260760.14it/s]
+    Skipping identifier f080935#idp57072, as it appears outside a paragraph
+    Skipping identifier f039264#id60072, as it appears outside a paragraph
+    Skipping identifier f059698#id58538, as it appears outside a paragraph
+    ...
+    Skipping identifier f023353#idp65840, as it appears outside a paragraph
+    Skipping identifier f048268#id53551, as it appears outside a paragraph
+    100%|█████████████████████████████████████████████████████| 1425/1425 [00:00<00:00, 252199.81it/s]
+    1425 / 1394 input / output relevance judgements
     Converting relevance judgements NTCIR_10_Math-qrels_fs.dat -> NTCIR_10_Math-qrels_fs-converted.dat
-    100%|█████████████████████████████████████████████████████| 2129/2129 [00:00<00:00, 299442.45it/s]
+    Skipping identifier f095981#id72919, as it appears outside a paragraph
+    Skipping identifier f061190#id56357, as it appears outside a paragraph
+    Skipping identifier f033738#id116089, as it appears outside a paragraph
+    ...
+    Skipping identifier f019052#id54515, as it appears outside a paragraph
+    Skipping identifier f021845#id53581, as it appears outside a paragraph
+    100%|█████████████████████████████████████████████████████| 2129/2129 [00:00<00:00, 291048.96it/s]
+    2129 / 2076 input / output relevance judgements
