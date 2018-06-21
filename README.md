@@ -1,12 +1,17 @@
-# Introduction
-The retrieval unit in the [NTCIR-10 Math][paper:aizawaetal13-ntcir10] task
-[dataset][www:ntcir-10-math-data] is an arXiv document and the judgement unit
-in the [relevance judgements][www:ntcir-task-data] is an XML element.
-On the other hand, the retrieval and judgement units in the [NTCIR-11
-Math-2][paper:aizawaetal14-ntcir11], and [NTCIR-12
-MathIR][paper:zanibbi16-ntcir12] task [dataset][www:ntcir-12-mathir-data], and
-[relevance judgements][www:ntcir-task-data] is an arXiv document paragraph.
-This makes it difficult to use both datasets together in a single evaluation.
+NTCIR-10 Math Converter – Converts NTCIR-10 Math datasets, and judgements into NTCIR-11 and NTCIR-12 format
+===========================================================================================================
+[![CircleCI](https://circleci.com/gh/MIR-MU/ntcir10-math-converter/tree/master.svg?style=shield)][ci]
+
+ [ci]: https://circleci.com/gh/MIR-MU/ntcir10-math-converter/tree/master (CircleCI)
+
+The retrieval unit in the [NTCIR-10 Math][aizawaetal13-ntcir10] task
+[dataset][ntcir-10-math-data] is an arXiv document and the judgement unit in
+the [relevance judgements][ntcir-task-data] is an XML element.  On the other
+hand, the retrieval and judgement units in the [NTCIR-11
+Math-2][aizawaetal14-ntcir11], and [NTCIR-12 MathIR][zanibbi16-ntcir12] task
+[dataset][ntcir-12-mathir-data], and [relevance judgements][ntcir-task-data] is
+an arXiv document paragraph.  This makes it difficult to use both datasets
+together in a single evaluation.
 
 NTCIR Math converter is a Python 3 command-line utility that converts the
 NTCIR-10 Math XHTML5 dataset and relevance judgements to the NTCIR-11 Math-2,
@@ -16,20 +21,26 @@ paragraphs. As a result, the NTCIR-10 Math dataset, and relevance judgements
 can be easily used together with the NTCIR-11 Math-2, and NTCIR-12 MathIR
 dataset, and relevance judgements in a single workflow.
 
-[paper:aizawaetal13-ntcir10]: https://ntcir-math.nii.ac.jp/wp-content/blogs.dir/23/files/2013/10/01-NTCIR10-OV-MATH-AizawaA.pdf (NTCIR-10 Math Pilot Task Overview)
-[paper:aizawaetal14-ntcir11]: https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.686.444&rep=rep1&type=pdf (NTCIR-11 Math-2 Task Overview)
-[paper:zanibbi16-ntcir12]: https://research.nii.ac.jp/ntcir/workshop/OnlineProceedings12/pdf/ntcir/OVERVIEW/01-NTCIR12-OV-MathIR-ZanibbiR.pdf (NTCIR-12 MathIR Task Overview)
+[aizawaetal13-ntcir10]: https://ntcir-math.nii.ac.jp/wp-content/blogs.dir/23/files/2013/10/01-NTCIR10-OV-MATH-AizawaA.pdf (NTCIR-10 Math Pilot Task Overview)
+[aizawaetal14-ntcir11]: https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.686.444&rep=rep1&type=pdf (NTCIR-11 Math-2 Task Overview)
+[ntcir-task-data]: https://www.nii.ac.jp/dsc/idr/en/ntcir/ntcir-taskdata.html (Downloading NTCIR Test Collections Task Data)
+[ntcir-10-math-data]: https://ntcir-math.nii.ac.jp/data/ (NTCIR-12 MathIR » Data » NTCIR-10 Math Pilot Task)
+[ntcir-12-mathir-data]: https://ntcir-math.nii.ac.jp/data/ (NTCIR-12 MathIR » Data » NTCIR-12 MathIR Task)
+[zanibbi16-ntcir12]: https://research.nii.ac.jp/ntcir/workshop/OnlineProceedings12/pdf/ntcir/OVERVIEW/01-NTCIR12-OV-MathIR-ZanibbiR.pdf (NTCIR-12 MathIR Task Overview)
 
-[www:ntcir-task-data]: https://www.nii.ac.jp/dsc/idr/en/ntcir/ntcir-taskdata.html (Downloading NTCIR Test Collections Task Data)
-[www:ntcir-10-math-data]: https://ntcir-math.nii.ac.jp/data/ (NTCIR-12 MathIR » Data » NTCIR-10 Math Pilot Task)
-[www:ntcir-12-mathir-data]: https://ntcir-math.nii.ac.jp/data/ (NTCIR-12 MathIR » Data » NTCIR-12 MathIR Task)
-
-# Usage
+Usage
+=====
+Installing
+----------
+The package can be installed by executing the following command:
 Installing:
 
     $ pip install ntcir10-math-converter
 
-Displaying the usage:
+Displaying the usage
+--------------------
+Usage information for the package can be displayed by executing the following
+command:
 
     $ ntcir10-math-converter --help
     usage: ntcir10-math-converter [-h] --dataset DATASET [DATASET ...]
@@ -60,7 +71,10 @@ Displaying the usage:
                             The number of processes that will be used for
                             processing the NTCIR-10 Math dataset. Defaults to 1.
 
-Converting both a dataset, and relevance judgements using 64 worker processes:
+Converting a dataset, and relevance judgements
+----------------------------------------------
+The following command converts both a dataset, and relevance judgements using
+64 worker processes:
 
     $ ntcir10-math-converter --num-workers 64 \
     >     --dataset ntcir-10 ntcir-10-converted \
@@ -102,7 +116,8 @@ Converting only a dataset using 64 worker processes:
     Converting dataset ntcir-10 -> ntcir-10-converted/xhtml5
     100%|████████████████████████████████████████████████████| 100000/100000 [07:34<00:00, 220.10it/s]
 
-Converting only relevance judgements using 64 worker processes:
+The following command converts only relevance judgements using 64 worker
+processes:
 
     $ ntcir10-math-converter --num-workers 64 \
     >     --dataset ntcir-10 \
